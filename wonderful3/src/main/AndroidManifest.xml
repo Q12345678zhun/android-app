@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	package="com.xgr.wonderful"
+    android:versionCode="3"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="26" />
+    <!-- bmob permission -->
+  	<uses-permission android:name="android.permission.INTERNET" /><!-- 允许应用打开网络套接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /><!-- 允许应用访问网络上的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+   	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+   	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+   	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+   	<uses-permission android:name="android.permission.READ_LOGS"
+		tools:ignore="ProtectedPermissions" />
+   	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+   	<uses-permission android:name="android.permission.VIBRATE"/>
+   	<uses-permission android:name="android.permission.WRITE_SETTINGS"
+		tools:ignore="ProtectedPermissions" />
+   	<uses-permission android:name="android.permission.GET_TASKS"/>
+   	<uses-permission android:name="android.permission.REORDER_TASKS"/>
+   	
+   	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+   	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+		tools:ignore="ProtectedPermissions" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+	<uses-permission android:name="android.permission.CAMERA"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+	<uses-feature android:name="android.hardware.camera"/>
+	<uses-feature android:name="android.hardware.camera.autofocus"/>
+   	
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:name="com.xgr.wonderful.MyApplication"
+		>
+        <activity
+         	android:name="com.xgr.wonderful.ui.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.xgr.wonderful.ui.MainActivity"
+            	  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity android:name="com.xgr.wonderful.ui.RegisterAndLoginActivity"
+            	  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity android:name="com.xgr.wonderful.ui.EditActivity"
+            	  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"
+            	  android:windowSoftInputMode="adjustPan"
+            	  ></activity>
+        <activity android:name="com.xgr.wonderful.ui.CommentActivity"
+                  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity android:name="com.xgr.wonderful.ui.FavActivity"
+                  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity android:name="com.xgr.wonderful.ui.PersonalActivity"
+                  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity android:name="com.xgr.wonderful.ui.PersonalEditActivity"
+                  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+        <activity android:name="com.xgr.wonderful.ui.SettingsActivity"
+                  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+         <activity android:name="com.xgr.wonderful.ui.AboutActivity"
+                  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+          <activity android:name="com.xgr.wonderful.ui.EditSignActivity"
+                  android:screenOrientation="portrait"
+            	  android:theme="@android:style/Theme.Light.NoTitleBar"></activity>
+    	 <!-- umeng feedback -->
+         <activity android:name="com.umeng.fb.ConversationActivity"
+         		  android:theme="@android:style/Theme.NoTitleBar"/>
+         <activity android:name="com.umeng.fb.ContactActivity"
+                  android:theme="@android:style/Theme.NoTitleBar"/>
+         <meta-data android:value="5306c26856240b946c0b82d7" android:name="UMENG_APPKEY"></meta-data>
+         <meta-data android:value="QD_umeng" android:name="UMENG_CHANNEL"/>
+         <meta-data android:name="UMENG_MESSAGE_SECRET" android:value="aa303ab2933220ee2d82cc7ac3575768"/>
+    	 <!-- umeng update -->
+    	 <service
+			       android:name="com.umeng.update.net.DownloadingService"
+			       android:process=":DownloadingService" >
+		 </service>
+		 <activity 
+		    	   android:name="com.umeng.update.UpdateDialogActivity"
+		           android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+		 </activity>
+		 <!-- umeng push -->
+		 <receiver
+			    android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+			    android:exported="false" >
+			</receiver>
+			<receiver android:name="com.umeng.message.RegistrationReceiver" >
+			    <intent-filter>
+			        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+			    </intent-filter>
+			    <intent-filter>
+			        <action android:name="android.intent.action.PACKAGE_REMOVED" />
+			
+			        <data android:scheme="package" />
+			    </intent-filter>
+			</receiver>
+			<receiver android:name="com.umeng.message.UmengBroadcastReceiver" >
+			    <intent-filter>
+			        <action android:name="org.agoo.android.intent.action.RECEIVE" />
+			    </intent-filter>
+			    <intent-filter>
+			        <action android:name="com.xgr.qingqiang.intent.action.COMMAND" />
+			    </intent-filter>
+			    <intent-filter>
+			        <action android:name="org.agoo.android.intent.action.RE_ELECTION_V2" />
+			    </intent-filter>
+			</receiver>
+			<service
+			    android:name="com.umeng.message.UmengService"
+			    android:exported="true"
+			    android:process=":umengService_v1" >
+			    <intent-filter>
+			        <action android:name="com.xgr.qingqiang.intent.action.START" />
+			    </intent-filter>
+			    <intent-filter>
+			        <action android:name="com.xgr.qingqiang.intent.action.COCKROACH" />
+			    </intent-filter>
+			    <intent-filter>
+			        <action android:name="org.agoo.android.intent.action.PING" />
+			    </intent-filter>
+			</service>
+			<service
+			    android:name="org.android.agoo.service.ElectionService"
+			    android:exported="true"
+			    android:process=":umengService_v1" >
+			    <intent-filter>
+			        <action android:name="org.agoo.android.intent.action.ELECTION_V2" />
+			    </intent-filter>
+			</service>
+			<service android:name="com.umeng.message.UmengIntentService" />
+		 
+		   <!-- youmi -->
+		   <activity
+			    android:name="net.youmi.android.AdBrowser"
+			    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+			    android:theme="@android:style/Theme.Light.NoTitleBar" >
+			</activity>
+			<service
+			    android:name="net.youmi.android.AdService"
+			    android:exported="false" >
+			</service>
+			<service
+			    android:name="net.youmi.android.ExpService"
+			    android:exported="false" >
+			</service>
+			<receiver
+			    android:name="net.youmi.android.AdReceiver" >
+			    <intent-filter>
+			        <action android:name="android.intent.action.PACKAGE_ADDED" />
+			        <data android:scheme="package" />
+			    </intent-filter>
+			</receiver>
+			<receiver
+			    android:name="net.youmi.android.offers.OffersReceiver"
+			    android:exported="false" >
+			</receiver>
+			<meta-data android:name="YOUMI_CHANNEL"
+    				   android:value="10190" >
+			</meta-data>
+			
+			        <!-- openqq -->
+         <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent100548485" />
+ 				<!-- 100380359 100381104 222222 -->
+            </intent-filter>
+        </activity>
+         <!-- MAT -->
+        <!-- 请将value改为MTA分配的appkey < -->
+        <meta-data
+            android:name="TA_APPKEY"
+            android:value="Aqc100548485" />
+        <!-- 请将value改为app发布对应的渠道，不同的发布渠道使用不同的名字 < -->
+        <meta-data
+            android:name="InstallChannel"
+            android:value="QD_91" />
+        <!-- 注意：若填写的渠道为纯数字字符串类型，请不要超过int表示的范围！ < -->
+        
+         <activity android:name=".sns.Location" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="baidumapsdk.demo.BMapApiDemoMain"></activity>
+    
+          <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="d5V83evp6sKVAh8VhHImODhGG7zwnNz1"
+			 />
+             
+       
+        
+       
+        
+      
+        <activity
+            android:name="baidumapsdk.demo.CustomRouteOverlayDemo"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="sensor" >
+        </activity>
+       
+        <activity
+            android:name="baidumapsdk.demo.PoiSearchDemo"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/demo_name_poi"
+            android:screenOrientation="sensor" >
+        </activity>
+       
+
+        <activity
+            android:name="baidumapsdk.demo.RoutePlanDemo"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/demo_name_route"
+            android:screenOrientation="sensor" >
+        </activity>
+       
+        <activity
+            android:name="baidumapsdk.demo.BusLineSearchDemo"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/demo_name_bus"
+            android:screenOrientation="sensor" >
+        </activity>
+       
+       
+       
+       
+        <activity
+            android:name="com.baidu.mapapi.search.PlaceCaterActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="baidumapsdk.demo.NaviDemo"
+            android:label="@string/demo_name_navi" >
+        </activity>
+       
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"
+			tools:replace="android:process">
+        </service>
+
+        <activity
+            android:name="baidumapsdk.demo.ShareDemo"
+            android:label="@string/demo_name_share" >
+        </activity>
+        <activity
+            android:name="baidumapsdk.demo.ShareDemoActivity"
+            android:label="@string/demo_name_share" >
+        </activity>
+
+		<activity android:theme="@android:style/Theme.NoTitleBar" android:name=".ui.Location"></activity>
+
+		<activity
+			android:name="com.dong.dongweather.WeatherActivity"
+			android:launchMode="singleTask"
+			>
+
+		</activity>
+		<activity
+			android:name="com.dong.dongweather.ChooseAreaActivity"
+			android:label="@string/title_activity_choose_area"
+			 />
+		<activity android:name="com.dong.dongweather.AddCountyActivity" />
+
+		<receiver android:name="com.dong.dongweather.WidgetProvider">
+			<intent-filter>
+				<action android:name="com.dong.dongweather.action.SKIP_COUNTY_WEATHER" />
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+
+			<meta-data
+				android:name="android.appwidget.provider"
+				android:resource="@xml/widget_provider" />
+		</receiver>
+
+		<service
+			android:name="com.dong.dongweather.service.ListViewService"
+			android:enabled="true"
+			android:exported="true"
+			android:permission="android.permission.BIND_REMOTEVIEWS"
+			android:process=":ListViewService" />
+
+		<provider
+			android:name="com.dong.dongweather.WidgetListviewContentProvider"
+			android:authorities="com.dong.dongweather.WidgetListviewContentProvider"
+			android:enabled="true"
+			android:exported="true">
+		</provider>
+
+		<activity android:name="com.baidu.ardemo.Main_Activity">
+
+		</activity>
+
+		<!--禁止分屏-->
+		<activity
+			android:name="com.baidu.ardemo.ARActivity"
+			android:screenOrientation="portrait"
+			android:resizeableActivity="false"
+			android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+	</application>
+    
+     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </permission>
+
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"
+		tools:ignore="MockLocation,ProtectedPermissions">
+    </uses-permission>
+    <!-- <uses-permission android:name="android.permission.WRITE_APN_SETTINGS"></uses-permission> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+		tools:ignore="ProtectedPermissions" />
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="false"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+</manifest>
+    
+    
